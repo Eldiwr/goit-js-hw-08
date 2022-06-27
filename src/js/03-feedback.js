@@ -3,13 +3,13 @@ import throttle from "lodash.throttle";
 
 const form = document.querySelector('.feedback-form');
 
-const formData = {};
+const formData = JSON.parse(localStorage.getItem(TEXT_FORM)) || {};
 const TEXT_FORM = 'feedback-form-state';
 
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(onFormInput, 500));
 
-populateTextarea();
+populateMessage();
 
 function onFormInput(event){
     formData[event.target.name] = event.target.value;
@@ -24,15 +24,12 @@ function onFormSubmit(event) {
     localStorage.removeItem(TEXT_FORM);
 };
 
-function populateTextarea() {
+function populateMessage() {
     const savedMessage = JSON.parse(localStorage.getItem(TEXT_FORM));
     
-    if (savedMessage === undefined) {
-        form.email.value = "";
-        form.message.value = "";       
-    } else {
-        form.email.value = savedMessage.email;
-        form.message.value = savedMessage.message;
+    if (savedMessage) {
+        form.elements.email.value = savedMessage.email || "";
+        form.elements.message.value = savedMessage.message || "";       
     }
 };
 
