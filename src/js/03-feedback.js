@@ -15,13 +15,15 @@ function onFormInput(event){
     formData[event.target.name] = event.target.value;
 
     localStorage.setItem(TEXT_FORM, JSON.stringify(formData));
+    console.log(formData);
 };
 
 function onFormSubmit(event) {
     event.preventDefault();
-
+    
     event.currentTarget.reset();
     localStorage.removeItem(TEXT_FORM);
+    
 };
 
 function populateMessage() {
