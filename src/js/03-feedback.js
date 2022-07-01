@@ -15,7 +15,6 @@ function onFormInput(event){
     formData[event.target.name] = event.target.value;
 
     localStorage.setItem(TEXT_FORM, JSON.stringify(formData));
-    console.log(formData);
 };
 
 function onFormSubmit(event) {
@@ -23,6 +22,7 @@ function onFormSubmit(event) {
     
     event.currentTarget.reset();
     localStorage.removeItem(TEXT_FORM);
+    console.log(formData);
     
 };
 
