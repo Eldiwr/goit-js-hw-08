@@ -18,13 +18,12 @@ function onFormInput(event){
 };
 
 function onFormSubmit(event) {
-    formData = {};
     event.preventDefault();
-    
-    event.currentTarget.reset();
-    localStorage.removeItem(TEXT_FORM);
+    formData = JSON.parse(localStorage.getItem(TEXT_FORM)) || {};
     console.log(formData);
-    
+
+    event.currentTarget.reset();
+    localStorage.removeItem(TEXT_FORM);    
 };
 
 function populateMessage() {
