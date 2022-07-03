@@ -19,7 +19,7 @@ function onFormInput(event){
 
 function onFormSubmit(event) {
     event.preventDefault();
-    formData = JSON.parse(localStorage.getItem(TEXT_FORM)) || {};
+    formData = {};
     console.log(formData);
 
     event.currentTarget.reset();
