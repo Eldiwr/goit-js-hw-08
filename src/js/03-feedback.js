@@ -19,9 +19,9 @@ function onFormInput(event){
 
 function onFormSubmit(event) {
     event.preventDefault();
-    formData = {};
     console.log(formData);
-
+    formData = {};
+    
     event.currentTarget.reset();
     localStorage.removeItem(TEXT_FORM);    
 };
